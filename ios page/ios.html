@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Devices</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .device-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .device-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .device-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .device-card .card-content {
+            padding: 20px;
+        }
+
+        .device-card .card-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .device-card .card-content p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #007aff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #005bb5;
+        }
+
+        .device-details {
+            display: none;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+</nav>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- iPhone 15 Card -->
+    <div class="device-card">
+        <img src="https://via.placeholder.com/400x300?text=iPhone+15" alt="iPhone 15">
+        <div class="card-content">
+            <h2>iPhone 15</h2>
+            <p>The iPhone 15 features an advanced A16 Bionic chip, stunning OLED display, and the latest camera technology.</p>
+            <a href="#" class="button" onclick="toggleDetails('iphone15')">See Details</a>
+            <div id="iphone15" class="device-details">
+                <p>Price: $999</p>
+                <p>Storage options: 128GB, 256GB, 512GB</p>
+                <p>Colors: Black, White, Blue, Red</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apple Watch Card -->
+    <div class="device-card">
+        <img src="images\download.jpg" alt="Apple Watch">
+        <div class="card-content">
+            <h2>Apple Watch Series 9</h2>
+            <p>With advanced health tracking, fitness features, and customizable designs, the Apple Watch Series 9 keeps you connected and healthy.</p>
+            <a href="#" class="button" onclick="toggleDetails('applewatch')">See Details</a>
+            <div id="applewatch" class="device-details">
+                <p>Price: $399</p>
+                <p>Features: ECG, Blood Oxygen, GPS</p>
+                <p>Colors: Silver, Graphite, Gold</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- iPad Pro Card -->
+    <div class="device-card">
+        <img src="https://via.placeholder.com/400x300?text=iPad+Pro" alt="iPad Pro">
+        <div class="card-content">
+            <h2>iPad Pro</h2>
+            <p>The iPad Pro combines power and versatility with the M2 chip, a 120Hz ProMotion display, and incredible camera features.</p>
+            <a href="#" class="button" onclick="toggleDetails('ipadpro')">See Details</a>
+            <div id="ipadpro" class="device-details">
+                <p>Price: $1099</p>
+                <p>Storage options: 128GB, 256GB, 512GB, 1TB</p>
+                <p>Sizes: 11-inch, 12.9-inch</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 Apple Inc. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleDetails(deviceId) {
+        var details = document.getElementById(deviceId);
+        if (details.style.display === "none" || details.style.display === "") {
+            details.style.display = "block";
+        } else {
+            details.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
